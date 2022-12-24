@@ -208,6 +208,7 @@ function changeLogin() {
 
     if (register.classList.contains('hidden')) {
         login.style.opacity = 0;
+        $('.login-error').addClass('hidden')
         setTimeout(() => {
             login.classList.toggle('hidden');
             register.classList.toggle('hidden');
@@ -220,6 +221,7 @@ function changeLogin() {
             document.title = "Регистрация";
         }, 270);
     } else {
+        $('.register-error').addClass('hidden')
         register.style.opacity = 0;
         setTimeout(() => {
             register.classList.toggle('hidden');

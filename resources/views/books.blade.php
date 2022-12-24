@@ -13,11 +13,20 @@
         </span>
         <div class="rating-and-price">
             <div class="rating-div">
-                <div name="rating" class="rating green-color">
-                    <span class="cursor-default">
-                        {{ $b->rate }}%
-                    </span>
-                </div>
+                @if ($b->rate >= 70)
+                    <div name="rating" class="rating green-color">
+                        <span class="cursor-default">
+                            {{ $b->rate }}%
+                        </span>
+                    </div>    
+                @else
+                    <div name="rating" class="rating red-color">
+                        <span class="cursor-default">
+                            {{ $b->rate }}%
+                        </span>
+                    </div>    
+                @endif
+                
             </div>
             <div class="price-div">
                 @if ($b->discount == 0)

@@ -12,7 +12,7 @@
                 <img src="./img/user-picture.png" class="user-picture">
             </div>
             <div class="user-inf-grid">
-                <div class="user-information white-color content-shadow">
+                <div class="user-information user-information-reverse white-color content-shadow">
                     <div id="user-email">
                         <span class="span-label">
                             Электронная почта
@@ -23,32 +23,13 @@
                             <img class="svg-primary" src="./img/icons/check-decagram.svg">
                         </span>
                     </div>
-                    <div id="user-birth">
-                        <span class="span-label">
-                            Дата рождения
-                        </span>
-                        <br>
-                        <span class="span-label-data">
-                            30.03.2002
-                        </span>
-                    </div>
                     <div id="user-phone">
                         <span class="span-label">
-                            Телефон
+                            Аккаунт создан
                         </span>
                         <br>
                         <span class="span-label-data">
-                            +7(999)999-99-99
-                            <img class="svg-primary" src="./img/icons/check-decagram.svg">
-                        </span>
-                    </div>
-                    <div id="user-sex">
-                        <span class="span-label">
-                            Пол
-                        </span>
-                        <br>
-                        <span class="span-label-data">
-                            Мужской                                
+                            {{ Auth::user()->created_at }}
                         </span>
                     </div>
                 </div>

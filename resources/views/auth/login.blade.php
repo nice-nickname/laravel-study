@@ -5,6 +5,7 @@
     <meta charset="UTF-8"/>
     <link rel="icon" type="image/x-icon" href="{{ asset("img/favicon.ico") }}"/>
     <link rel="stylesheet" href="{{ asset("css/styles.css") }}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="{{ asset("js/script.js") }}"></script>
     <title>Войти</title>
 </head>
@@ -27,6 +28,12 @@
                     <span class="span-color-gray" style="margin-bottom: 8px;">
                         или
                     </span>
+                    @error('login_attempt')
+                        <span class="login-error">{{ $message }} </span>
+                    @enderror
+                    @error('login_email')
+                        <span class="login-error">{{ $message }} </span>
+                    @enderror
                     <div class="input-text white-color content-shadow">
                         <textarea rows="1" name="login_email" placeholder="Электронная почта" class="@error('login_email') invalid @enderror"
                         ></textarea>

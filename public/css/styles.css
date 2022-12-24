@@ -10,14 +10,14 @@
     font-style: normal;
     font-weight: 400;
     src: local("Gothic A1"),
-        url("../fonts/GothicA1-Regular.woff") format("woff")
+        url("/fonts/GothicA1-Regular.woff") format("woff")
 }
 
 @font-face {
     font-family: "Gothic A1";
     font-style: normal;
     font-weight: bold;
-    src: local("../fonts/GothicA1-Bold.woff") format("woff")
+    src: url("/fonts/GothicA1-Bold.woff") format("woff")
 }
 
 * {
@@ -1388,6 +1388,10 @@ video {
                             "payment orders favorite";
 }
 
+.user-information-reverse {
+    flex-direction: column !important;
+}
+
 .user-information,
 .user-payment {
     width: 416px;
@@ -1405,8 +1409,6 @@ video {
     max-height: 320px;
     border-radius: 32px;
     padding: 16px;
-    display: flex;
-    flex-direction: column;
     font-size: 20px;
     flex-wrap: wrap;
 }
@@ -1492,6 +1494,8 @@ video {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    height: calc(100% - 30px);
+    overflow-y: auto;
 }
 
 .user-order {
@@ -1992,4 +1996,8 @@ footer {
 #placer {
     width: 100%;
     height: calc(100% - 96px);
+}
+
+.rating.red-color > span {
+    color: white;
 }

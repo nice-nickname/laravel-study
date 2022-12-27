@@ -23,7 +23,6 @@ use SebastianBergmann\Environment\Console;
 Route::get('/', [HomeController::class, "index"])->name('home');
 Route::get('/about', [HomeController::class, "about"])->name('about');
 
-
 Route::get('/login', [AuthController::class, "loginForm"])->name("login");
 Route::post('/login', [AuthController::class, "login"])->name("api.login");
 Route::post('/registration', [AuthController::class, "registration"])->name("api.registration");

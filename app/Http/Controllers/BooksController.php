@@ -70,7 +70,7 @@ class BooksController extends Controller
             return redirect($redirect_url)->withErrors(['text' => 'Комментарий не должен быть пустым!']);
         }
 
-        $comment = Comments::create([
+        Comments::create([
             'user_id' => Auth::user()->id,
             'book_id' => $bookId,
             'comment' => $text,
@@ -88,12 +88,10 @@ class BooksController extends Controller
 
         $f = Favorites::all()->where('user_id', '=', $userId)->where('book_id', '=', $id);
 
-        if ($f->count() != 0 && $delete == true) {
-            return redirect($redirect_url);
-        }
-
         if ($f->count() != 0) {
-            Favorites::destroy($f);
+            if (!$delete) {
+                Favorites::destroy($f);    
+            }
             return redirect($redirect_url);
         }
 
@@ -101,6 +99,7 @@ class BooksController extends Controller
             'user_id' => Auth::user()->id,
             'book_id' => $id
         ]);
+
         return redirect($redirect_url);
     }
 
@@ -119,6 +118,7 @@ class BooksController extends Controller
             'user_id' => $userId,
             'book_id' => $id
         ]);
+
         return redirect($redirect_url);
     }
 }

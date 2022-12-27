@@ -33,13 +33,13 @@ class HomeController extends Controller
         $userId = Auth::user()->id;
         $favorites = Favorites::with(['book', 'book.author'])->where('user_id', '=', $userId)->get();
         $basket = Basket::with(['book', 'book.author'])->where('user_id', '=', $userId)->get();
-        
 
         return view('user.account')->with(['favorites' => $favorites, 'basket' => $basket]);
     }
 
     public function bucket() {
         $items = Basket::with(['book', 'book.author'])->where('user_id', '=', Auth::user()->id)->get();
+
         $total = 0;
         foreach ($items as $i) {
             $total += $i->book->actual;

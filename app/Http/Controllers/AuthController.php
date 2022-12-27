@@ -26,7 +26,7 @@ class AuthController extends Controller
             return redirect(route("home"));
         }
 
-        return redirect(route("login"))->withErrors(["login_attempt" => "Пользователь не найден, либо данные введены не правильно"]);
+        return redirect(route("login"))->withErrors(["login_email" => "Пользователь не найден, либо данные введены не правильно"]);
     }
 
     public function logout(Request $req) {
